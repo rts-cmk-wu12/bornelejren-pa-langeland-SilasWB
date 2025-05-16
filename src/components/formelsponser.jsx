@@ -1,90 +1,82 @@
-import React, { useState } from 'react';
-import '../style/formelsponser.scss';
+import React, { useState } from "react";
+import "../style/resets.scss";
+import "../style/formelsponser.scss";
 
-const FormelSponser = () => {
+function FormelSponser() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
+    supportType: "",
+    company: "",
+    email: "",
+    address: "",
+    phone: "",
+    amount: "",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
-    // Reset form
+    console.log("Form submitted:", formData);
+    
+    alert("Tak for din registrering som sponsor!");
     setFormData({
-      name: '',
-      email: '',
-      company: '',
-      message: ''
+      supportType: "",
+      company: "",
+      email: "",
+      address: "",
+      phone: "",
+      amount: "",
     });
   };
 
   return (
-    <div className="formel-sponser-container">
-      <h2>Become a Sponsor</h2>
+    <main className="sponsor">
+      <h1>Bliv sponsor</h1>
+      <p>
+        Udfyld formularen nedenfor for at støtte Børnelejren på Langeland.
+      </p>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <label>
+          Støttetype
+          <select name="supportType" value={formData.supportType} onChange={handleChange} required>
+            <option value="">Vælg type</option>
+            <option value="Engangsstøtte">Engangsstøtte</option>
+            <option value="Månedlig støtte">Månedlig støtte</option>
+            <option value="Årlig støtte">Årlig støtte</option>
+          </select>
+        </label>
 
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <label>
+          Firmanavn
+          <input type="text" name="company" value={formData.company} onChange={handleChange} required />
+        </label>
 
-        <div className="form-group">
-          <label htmlFor="company">Company:</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <label>
+          E-mail
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        </label>
 
-        <div className="form-group">
-          <label htmlFor="message">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <label>
+          Adresse
+          <input type="text" name="address" value={formData.address} onChange={handleChange} required />
+        </label>
 
-        <button type="submit" className="submit-btn">Submit</button>
+        <label>
+          Telefon
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
+        </label>
+
+        <label>
+          Beløb (DKK)
+          <input type="number" name="amount" value={formData.amount} onChange={handleChange} required />
+        </label>
+
+        <button type="submit" className="button">Send registrering</button>
       </form>
-    </div>
+    </main>
   );
-};
+}
 
 export default FormelSponser;

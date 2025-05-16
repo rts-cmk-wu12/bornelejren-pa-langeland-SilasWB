@@ -14,7 +14,7 @@ import "../style/nav.scss"
             <ul className="header__menu">
               <li className="header__menu-item"><Link to="/" className="header__menu-link">Forside</Link></li>
               <li className="header__menu-item"><Link to="/omos" className="header__menu-link">Om os</Link></li>
-              <li className="header__menu-item"><Link to="/sponsertilmeld" className="header__menu-link">Tilmeld som Sponsor</Link></li>
+              <li className="header__menu-item"><Link to="/blivsponsor" className="header__menu-link">Tilmeld som Sponsor</Link></li>
               <li className="header__menu-item"><Link to="/tak" className="header__menu-link">Børnelejren takker</Link></li>            </ul>
           </nav>
         </header>

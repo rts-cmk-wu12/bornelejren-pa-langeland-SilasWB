@@ -1,10 +1,8 @@
-import FormelSponser from "../components/formelsponser"    
+import FormelSponser from "./formelsponser"    
 import "../style/resets.scss"
-import Nav from "../components/nav" 
     function Sponsertilmeld() {
     return (
         <>
-        <Nav />
       <div>
        <h1>Tilmelding Som Sponsor</h1>
 

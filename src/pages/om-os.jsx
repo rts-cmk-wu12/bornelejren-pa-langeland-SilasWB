@@ -6,9 +6,13 @@ import "../style/resets.scss"
    function Omos() {
     return (
       <>
-      <Nav />
+      <Nav /> 
+      <main><h1>Om os</h1> 
+      <div className="omos__section">
+
+          <img src="../Billeder/Fotos/935231_371193959665245_700749190_n.jpg" alt="Søgård Hovedgård" />
       <div>
-       <h1>Om os</h1>
+     
        <p>Børnelejren på Langeland er en velgørende, non-profit forening, som afholder
 finansierede lejre for dårligt stillede børn og unge fra hele landet. Børnelejrene bliver
 afholdt på foreningens bondegård, Søgård Hovedgård, som ligger i naturskønne
@@ -27,8 +31,11 @@ Hovedgård bedes venligst sendt til Knud Bro Alle 1, st. mf., 3660 Stenløse. Te
 henvendelser bedes ligeledes rettet til sekretariatet på telefon 38711260. Foreningens
 formand er dagligt at træffe i sekretariatet</p>
       </div>
+ </div>
+      </main>
+       
       </>
     )
-}
 
+}
 export default Omos

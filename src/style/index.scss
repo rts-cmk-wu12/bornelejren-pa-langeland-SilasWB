@@ -1,17 +1,5 @@
-main div {
-  padding: 2rem;
-
-  p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    text-align: center;
-    width: 70%;
-  }
-}
-
-
-.omos__section {
-  display: flex;
+.index__section {
+   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
@@ -37,11 +25,11 @@ main div {
   img {
     align-items: center;
   }
+
 }
 
-
 @media screen and (max-width: 1450px) {
-    .omos__section {
+    .index__section {
         flex-direction: column;
     }
 }
