@@ -1,0 +1,50 @@
+main div {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    width: 70%;
+    text-align: center;
+  }
+}
+
+
+.omos__section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  
+
+  div {
+    flex: 1 1 45%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  
+  }
+
+
+  img {
+    align-items: center;
+  }
+}
+
+
+@media screen and (max-width: 1450px) {
+    .omos__section {
+        flex-direction: column;
+    }
+}
