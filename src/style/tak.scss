@@ -1,14 +1,50 @@
-main {
-    padding: 2rem;
+.tak-main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
 }
 
-p {
-  margin: 2rem;
+.tak-title {
+  color: #d0000b;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.tak-description {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.tak-subtitle {
+  margin: 2rem 0 1rem;
+  color: #d0000b;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.sponsors-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.sponsor-item {
+  background-color: #f8f8f8;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 1.1rem;
 }
 
-h5 {
-  margin: 1rem 2rem 0.5rem;
-  color: #d0000b;
-  font-size: 20px;
+.tak-divider {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(208, 0, 11, 0.5), rgba(0, 0, 0, 0));
 }

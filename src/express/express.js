@@ -1,54 +1,55 @@
-import express from 'express'
-import { MongoClient } from 'mongodb';
-import ViteExpress from 'vite-express'
+import express from 'express';
+import { MongoClient, ObjectId } from 'mongodb';
+import ViteExpress from 'vite-express';
+import dotenv from 'dotenv';
 
-const CONNECTION_STRING = 'mongodb+srv://helloiamnigc:123456abc@cluster0.wzvybil.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+dotenv.config();
 
+const CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING;
 const client = new MongoClient(CONNECTION_STRING);
-const database = client.db('blog');
-const posts = database.collection('posts');
 
 const server = express();
-
-server.get("/message", (_, res) => res.send("Hello from express!"));
-
-server.get("/api/posts", async (_, response,) => {
-    const posts = database.collection('posts');
-    const postData = await posts.find().toArray()
-    const postName = postData.map(post => { 
-        return { 
-            id: post._id,
-            title: post.title, 
-            content: post.content, 
-            author: post.author 
-        } 
-        
-    })
-    response.json(postName)
-});
-
-ViteExpress.listen(server, 3000, async () => console.log("Server is running at http://localhost:3000"));
-
 server.use(express.json());
 
-server.post("/api/posts", async (req, res) => {
-    try {
-        const newPost = await posts.insertOne(req.body);
-        res.status(201).json(newPost);
-    } catch (error) {
-        res.status(500).json({ message: "Error creating post" });
-    }
+let sponsors;
+
+async function connectDB() {
+  try {
+    await client.connect();
+    const database = client.db('blog');
+    sponsors = database.collection('sponsors');
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error);
+  }
+}
+
+server.get("/api/sponsors", async (_, res) => {
+  const data = await sponsors.find().toArray();
+  res.json(data);
 });
 
-server.delete("/api/posts/:_id", async (req, res) => {
-    try {
-        const result = await posts.deleteOne({ id: new Object_id(req.params.id) });
-        if (result.deletedCount === 1) {
-            res.status(200).json({ message: "Post deleted successfully" });
-        } else {
-            res.status(404).json({ message: "Post not found" });
-        }
-    } catch (error) {
-        res.status(500).json({ message: "Error deleting post" });
-    }
+server.post("/api/sponsors", async (req, res) => {
+  try {
+    const result = await sponsors.insertOne(req.body);
+    res.status(201).json(result);
+  } catch (error) {
+    res.status(500).json({ message: "Fejl ved oprettelse af sponsor" });
+  }
 });
+
+server.delete("/api/sponsors/:id", async (req, res) => {
+  try {
+    const result = await sponsors.deleteOne({ _id: new ObjectId(req.params.id) });
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: "Sponsor slettet" });
+    } else {
+      res.status(404).json({ message: "Sponsor ikke fundet" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Fejl ved sletning" });
+  }
+});
+
+await connectDB();
+ViteExpress.listen(server, 3000, () => console.log("🚀 Server running at http://localhost:3000"));
