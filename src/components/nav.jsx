@@ -8,7 +8,7 @@ import "../style/nav.scss"
           <nav className="header__nav">
             
                         <Link to="/" className="header__logo">
-                          <img src="/src/assets/logo.svg" alt="Børnelejren på Langeland" className="header__logo-img" />
+                          <img src="/logo.svg" alt="Børnelejren på Langeland" className="header__logo-img" />
                         </Link>
             
             <ul className="header__menu">
