@@ -1,8 +1,7 @@
 import Nav from "../components/nav"
 import "../style/omos.scss"   
 import "../style/resets.scss"
-
-
+import soegaard from '../assets/Fotos/935231_371193959665245_700749190_n.jpg';
    function Omos() {
     return (
       <>
@@ -10,7 +9,7 @@ import "../style/resets.scss"
       <main><h1>Om os</h1> 
       <div className="omos__section">
 
-          <img src="/billeder/fotos/935231_371193959665245_700749190_n.jpg" alt="Søgård Hovedgård" />
+          <img src={soegaard} alt="Søgård Hovedgård" />
       <div>
      
        <p>Børnelejren på Langeland er en velgørende, non-profit forening, som afholder

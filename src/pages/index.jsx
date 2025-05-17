@@ -1,6 +1,6 @@
 import Nav from "../components/nav"
 import "../style/index.scss"
-
+import hus from '../assets/Fotos/65597_371193986331909_1972008760_n.jpg';
 
 function Index() {
  
@@ -27,7 +27,7 @@ disse grupper, og det er disse børn, vi gerne vil gøre noget for.</p>
 til at sende dårligt stillede børn på et velfortjent lejrophold på Søgård. Hjælp os med at
 hjælpe dem!</p>
  </div>
-<div><img src="/billeder/fotos/65597_371193986331909_1972008760_n.jpg" alt="hus" /></div>
+<div><img src={hus} alt="hus" /></div>
 </section>
 
 
